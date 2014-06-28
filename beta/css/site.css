@@ -60,6 +60,19 @@ div.navbar ul.nav a {
 }
 */
 
+/* content */
+h3.content-title {
+    background-color: #0f050a;
+    display: inline-block;
+    font-weight: normal;
+    left: -2.0em;
+    margin: 0;
+    margin-bottom: 1em;
+    padding: 0.5em 0.75em 0.5em 2.0em;
+    position: relative;
+    text-transform: uppercase;
+}
+
 /* services */
 div.service {
     background-color: #0f050a;
@@ -78,18 +91,6 @@ div.service h3 {
 
 div.info {
     margin-bottom: 5em;
-}
-
-div.info h3 {
-    margin-bottom: 1.5em;
-    text-transform: uppercase;
-}
-
-div.info span.info-title {
-    background-color: #0f050a;
-    padding: 0.25em 1.5em 0.25em 2.5em;
-    position: relative;
-    left: -2.5em;
 }
 
 #contact ul.social {
