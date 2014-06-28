@@ -2,7 +2,8 @@
 
 /* general / misc */
 body {
-    background-color: #251921;
+    background: url("../img/bg-triangular.png"), repeat;
+    /* background-color: #251921; */
     color: #eee2d2;
     font-family: 'Noto Sans', sans-serif;
 }
@@ -30,11 +31,11 @@ div.navbar ul.nav a {
 #header {
     background-color: black;
     background-image: url("../img/bg-pixelated.jpg");
-    background-position: 0% 7%;
+    background-position: 0% 100%;
     background-size: cover;
-    height: 23em;
+    height: 16em;
     margin-top: 50px;
-    padding: 5em 0em 0em 1.5em;
+    padding: 3em 0em 0em 1.5em;
 }
 
 #logo {
@@ -42,7 +43,12 @@ div.navbar ul.nav a {
 }
 
 @media (min-width: 568px) {
-    #header { padding: 4em 0 0 2em; }
+    #header {
+	background-position: 0% 50%;
+	height: 20em;
+	padding: 4em 0 0 2em;
+    }
+
     #logo   { width: 480px; }
 }
 
