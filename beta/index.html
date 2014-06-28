@@ -12,7 +12,7 @@
   </head>
   <body role="document">
     <!-- nav -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div id="nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
 	<div class="navbar-header">
 	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,14 +21,14 @@
 	    <span class="icon-bar"></span>
 	    <span class="icon-bar"></span>
 	  </button>
-	  <a href="#" class="navbar-brand" title="Functional Pixel"><img src="img/logo-nav.svg" height="25" alt="Functional Pixel logo in navigation bar"/></a>
+	  <a href="#home" class="navbar-brand" title="Functional Pixel"><img src="img/logo-nav.svg" height="25" alt="Functional Pixel logo in navigation bar"/></a>
 	</div>
 	<div class="navbar-collapse collapse">
 	  <ul class="nav navbar-nav navbar-right">
-	    <li><a href="#">Home</a></li>
-	    <li><a href="#">Services</a></li>
-	    <li><a href="#">About</a></li>
-	    <li><a href="#">Contact</a></li>
+	    <li><a href="#home">Home</a></li>
+	    <li><a href="#services">Services</a></li>
+	    <li><a href="#about">About</a></li>
+	    <li><a href="#contact">Contact</a></li>
 	  </ul>
 	</div>
       </div>
@@ -36,7 +36,7 @@
     <!-- /nav -->
 
     <!-- jumbotron -->
-    <div id="header" class="jumbotron header-container">
+    <div id="header" name="home" class="jumbotron header-container">
       <div class="container">
 	<img id="logo" src="img/logo-main.svg" alt="Functional Pixel logo"/>
       </div>
@@ -47,7 +47,7 @@
     <div class="container" style="margin-bottom: 1em">
       <div class="row">
 	<div class="col-md-12">
-	  <h3 class="content-title">Services</h3>
+	  <h3 name="services" class="content-title">Services</h3>
 	</div>
       </div>
       <div class="row">
@@ -82,7 +82,7 @@
 	<div class="col-md-6">
 	  <!-- about -->
 	  <div id="about" class="info">
-	    <h3 class="content-title">About Me</h3>
+	    <h3 name="about" class="content-title">About Me</h3>
 	    <p>This is a lengthy description about how awesome I am. This should include helpful information, such as, my general location, how long I have been doing this, stuff I'm <strong>passionate</strong> about and why I'm passionate about such things.</p>
 	    <p>This is more filler text about my pure awesomeness and why you cannot help yourself but to give me money.</p>
 	  </div>
@@ -91,7 +91,7 @@
 	<div class="col-md-6">
 	  <!-- contact -->
 	  <div id="contact" class="info">
-	    <h3 class="content-title">Contact</h3>
+	    <h3 name="contact" class="content-title">Contact</h3>
 	    <p>This is the contact section. I'll put stuff in here like my email, facebook, google plus, twitter and any other blah-blah social-media blah-blah that people seem to care about. I would put an actual contact form but since this is hosted on github for free, but only supports static content, I have no way to handle a form submission. Oh well, email works.</p>
 	    <ul class="social">
 	      <li><a href="#"><span class="symbol">&#xe224;</a></li>
@@ -112,6 +112,63 @@
     <!-- /footer -->
 
     <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+     $(document).ready(function() {
+       var navbar = $(".navbar-collapse");
+       var actions = {
+	 home: function() {
+	   console.log("home was called.");
+	 },
+	 services: function() {
+	   console.log("services was called.");
+	 },
+	 about: function() {
+	   console.log("about was called.");
+	 },
+	 contact: function() {
+	   console.log("contact was called.");
+	 }
+       };
+
+       var scrollToAnchor = function(anchor) {
+	 var PADDING = 8;
+	 var target = $("[name=" + anchor + "]");
+	 if (target.length) {
+	   var executed = false;
+	   var pos = target.offset().top - $("#nav").height() - PADDING;
+	   if (anchor === "home") pos = 0;
+	   $("html,body").animate(
+	     { scrollTop: pos },
+	     { duration: 650,
+	       easing: "easeOutExpo",
+	       complete: function() {
+		 if (!executed) {
+		   executed = true;
+		   // execute any callbacks for the given anchor
+		   var action = actions[anchor];
+		   if (action) action();
+		 }
+	       }
+	     });
+	 }
+       }
+
+       $("ul.nav a, a.navbar-brand").click(function(e) {
+	 e.preventDefault();
+
+	 var anchor = $(e.currentTarget).attr("href").slice(1);
+
+	 // test if mobile (collapsible menu) was used
+	 if (navbar.hasClass("collapse") && navbar.hasClass("in")) {
+	   navbar.one("hidden.bs.collapse", function() { scrollToAnchor(anchor)})
+		 .collapse("hide");
+	 } else {
+	   scrollToAnchor(anchor);
+	 }
+       });
+     });
+    </script>
   </body>
 </html>
