@@ -13,6 +13,7 @@
      @-webkit-keyframes 'pulsator' {
        0% {
 	 background-color: #0f050a;
+	 border-right-color: #0f050a;
 	 color: #eee2d2;
        }
 
@@ -22,28 +23,29 @@
 	 color: #0f050a;
        }
 
-       26% {
+       30% {
 	 /* background-color: #e0ba15; */
 	 background-color: #8c740d;
        }
 
-       42% {
+       50% {
 	 /* background-color: #4ccb22; */
 	 background-color: #358c17;
        }
 
-       58% {
+       70% {
 	 /* background-color: #1f89c5; */
 	 background-color: #16628c;
        }
 
-       64% {
+       90% {
 	 /* background-color: #6623ab; */
 	 background-color: #541d8c;
        }
 
-       80% {
+       98% {
 	 background-color: #0f050a;
+	 border-right-color: #0f050a;
 	 color: #0f050a;
        }
 
@@ -55,8 +57,8 @@
 
      .pulsate {
        -webkit-animation-name: pulsator;
-       -webkit-animation-delay: 0.45s;
-       -webkit-animation-duration: 1.2s;
+       -webkit-animation-delay: 0.5s;
+       -webkit-animation-duration: 1.5s;
        -webkit-animation-timing-function: ease-in-out;
        -webkit-animation-direction: alternate;
        /* -webkit-animation-iteration-count: 6; */
@@ -100,7 +102,7 @@
     <div class="container" style="margin-bottom: 1em">
       <div class="row">
 	<div class="col-md-12">
-	  <h3 name="services" class="content-title">Services</h3>
+	  <h3 name="services" class="content-title content-type-service">Services</h3>
 	</div>
       </div>
       <div class="row">
@@ -135,7 +137,7 @@
 	<div class="col-md-6">
 	  <!-- about -->
 	  <div id="about" class="info">
-	    <h3 name="about" class="content-title">About Me</h3>
+	    <h3 name="about" class="content-title content-type-about">About Me</h3>
 	    <p>This is a lengthy description about how awesome I am. This should include helpful information, such as, my general location, how long I have been doing this, stuff I'm <strong>passionate</strong> about and why I'm passionate about such things.</p>
 	    <p>This is more filler text about my pure awesomeness and why you cannot help yourself but to give me money.</p>
 	  </div>
@@ -144,7 +146,7 @@
 	<div class="col-md-6">
 	  <!-- contact -->
 	  <div id="contact" class="info">
-	    <h3 name="contact" class="content-title">Contact</h3>
+	    <h3 name="contact" class="content-title content-type-contact">Contact</h3>
 	    <p>This is the contact section. I'll put stuff in here like my email, facebook, google plus, twitter and any other blah-blah social-media blah-blah that people seem to care about. I would put an actual contact form but since this is hosted on github for free, but only supports static content, I have no way to handle a form submission. Oh well, email works.</p>
 	    <ul class="social">
 	      <li><a href="#"><span class="symbol">&#xe224;</a></li>
@@ -174,8 +176,9 @@
        var pulsator = function(anchor) {
 	 var elem = $("[name=" + anchor + "]");
 	 elem.one("webkitAnimationEnd", function() {
-	   $(this).css("webkitAnimationName", "");
-	   $(this).removeClass("pulsate");
+	   $(this)
+             .css("webkitAnimationName", "")
+	     .removeClass("pulsate");
 	 });
 	 elem.css("webkitAnimationName", "pulsator");
 	 elem.addClass("pulsate");
@@ -187,8 +190,11 @@
 	 if (target.length) {
 	   var pos = target.offset().top - $("#nav").height() - PADDING;
 	   if (anchor === "home") pos = 0;
-	   $("html,body").animate({ scrollTop: pos },
-				  { duration: 650, easing: "easeOutExpo",});
+	   $("html,body")
+             .animate({ scrollTop: pos }, {
+	       duration: 650,
+	       easing: "easeOutExpo"
+	     });
 	   pulsator(anchor);
 	 }
        }
@@ -201,8 +207,9 @@
 
 	 // test if mobile (collapsible menu) was used
 	 if (navbar.hasClass("collapse") && navbar.hasClass("in")) {
-	   navbar.one("hidden.bs.collapse", function() { scrollToAnchor(anchor)})
-		 .collapse("hide");
+	   navbar
+             .one("hidden.bs.collapse", function() { scrollToAnchor(anchor)})
+	     .collapse("hide");
 	 } else {
 	   scrollToAnchor(anchor);
 	 }

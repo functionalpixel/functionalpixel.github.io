@@ -73,6 +73,18 @@ h3.content-title {
     text-transform: uppercase;
 }
 
+.content-type-service {
+    border-right: 0.25em solid #8d1120;
+}
+
+.content-type-about {
+    border-right: 0.25em solid #358c17;
+}
+
+.content-type-contact {
+    border-right: 0.25em solid #16628c;
+}
+
 /* services */
 div.service {
     background-color: #0f050a;
