@@ -9,6 +9,59 @@
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/site.css" rel="stylesheet"/>
     <link href="favicon.png" rel="icon" type="image/png"/>
+    <style>
+     @-webkit-keyframes 'pulsator' {
+       0% {
+	 background-color: #0f050a;
+	 color: #eee2d2;
+       }
+
+       10% {
+	 /* background-color: #c5182c; */
+	 background-color: #8d1120;
+	 color: #0f050a;
+       }
+
+       26% {
+	 /* background-color: #e0ba15; */
+	 background-color: #8c740d;
+       }
+
+       42% {
+	 /* background-color: #4ccb22; */
+	 background-color: #358c17;
+       }
+
+       58% {
+	 /* background-color: #1f89c5; */
+	 background-color: #16628c;
+       }
+
+       64% {
+	 /* background-color: #6623ab; */
+	 background-color: #541d8c;
+       }
+
+       80% {
+	 background-color: #0f050a;
+	 color: #0f050a;
+       }
+
+       100% {
+	 background-color: #0f050a;
+	 color: #eee2d2;
+       }
+     }
+
+     .pulsate {
+       -webkit-animation-name: pulsator;
+       -webkit-animation-delay: 0.45s;
+       -webkit-animation-duration: 1.2s;
+       -webkit-animation-timing-function: ease-in-out;
+       -webkit-animation-direction: alternate;
+       /* -webkit-animation-iteration-count: 6; */
+     }
+    </style>
   </head>
   <body role="document">
     <!-- nav -->
@@ -117,44 +170,30 @@
     <script>
      $(document).ready(function() {
        var navbar = $(".navbar-collapse");
-       var actions = {
-	 home: function() {
-	   console.log("home was called.");
-	 },
-	 services: function() {
-	   console.log("services was called.");
-	 },
-	 about: function() {
-	   console.log("about was called.");
-	 },
-	 contact: function() {
-	   console.log("contact was called.");
-	 }
+
+       var pulsator = function(anchor) {
+	 var elem = $("[name=" + anchor + "]");
+	 elem.one("webkitAnimationEnd", function() {
+	   $(this).css("webkitAnimationName", "");
+	   $(this).removeClass("pulsate");
+	 });
+	 elem.css("webkitAnimationName", "pulsator");
+	 elem.addClass("pulsate");
        };
 
        var scrollToAnchor = function(anchor) {
 	 var PADDING = 8;
 	 var target = $("[name=" + anchor + "]");
 	 if (target.length) {
-	   var executed = false;
 	   var pos = target.offset().top - $("#nav").height() - PADDING;
 	   if (anchor === "home") pos = 0;
-	   $("html,body").animate(
-	     { scrollTop: pos },
-	     { duration: 650,
-	       easing: "easeOutExpo",
-	       complete: function() {
-		 if (!executed) {
-		   executed = true;
-		   // execute any callbacks for the given anchor
-		   var action = actions[anchor];
-		   if (action) action();
-		 }
-	       }
-	     });
+	   $("html,body").animate({ scrollTop: pos },
+				  { duration: 650, easing: "easeOutExpo",});
+	   pulsator(anchor);
 	 }
        }
 
+       // setup animated scrolling
        $("ul.nav a, a.navbar-brand").click(function(e) {
 	 e.preventDefault();
 
