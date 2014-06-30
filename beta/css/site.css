@@ -2,14 +2,23 @@
 
 /* general / misc */
 body {
-    background: url("../img/bg-triangular.png"), repeat;
+    background-image: url("../img/bg-triangular.png");
+    background-size: 900px 900px;
+    background-position: 0% 25%;
+    background-repeat: repeat;
     /* background-color: #251921; */
-    color: #eee2d2;
+    /* color: #eee2d2; */
+    color: #b2a99d;
+    /* color: #bfb6a9; */
     font-family: 'Noto Sans', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p {
     font-family: 'Noto Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #eee2d2;
 }
 
 /* nav bar */
@@ -35,6 +44,7 @@ div.navbar ul.nav a {
     background-size: cover;
     height: 16em;
     margin-top: 50px;
+    margin-bottom: 5em;
     padding: 3em 0em 0em 1.05em;
 }
 
@@ -49,7 +59,7 @@ div.navbar ul.nav a {
 	padding: 4em 0 0 2em;
     }
 
-    #logo   { width: 480px; }
+    #logo   { width: 420px; }
 }
 
 /*
@@ -62,7 +72,8 @@ div.navbar ul.nav a {
 
 /* content */
 h3.content-title {
-    background-color: #0f050a;
+    /* background-color: #0f050a; */
+    background: rgba(15, 5, 10, 0.5);
     display: inline-block;
     font-weight: normal;
     left: -2.0em;
@@ -86,23 +97,57 @@ h3.content-title {
 }
 
 /* services */
-div.service {
-    background-color: #0f050a;
+div.service, div.info {
+    background: rgba(15, 5, 10, 0.5);
+    padding: 1.5em 1.25em 1.5em 1.25em;
     text-align: center;
     margin-bottom: 2em;
-    padding: 2em 1.25em 2em 1.25em;
 }
 
 div.service h3 {
     font-weight: normal;
-    margin-bottom: 1em;
+    margin: 0;
+    margin-bottom: 0.25em;
+    padding: 0em 0 1em 0;
     text-transform: uppercase;
+}
+
+div.service p, div.info p {
+    padding: 0 1.25em 2em 1.25em;
+}
+
+#design {
+    /*
+    background-image: url("../img/bg-service-illustration.png");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    */
+}
+
+#development {
+    /*
+    background-image: url("../img/bg-service-illustration.png");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    */
+}
+
+#illustration {
+    /*
+    background-image: url("../img/bg-service-illustration.png");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    */
 }
 
 /* about + contact sections */
 
 div.info {
     margin-bottom: 5em;
+}
+
+div.info p {
+    text-align: left;
 }
 
 #contact ul.social {
