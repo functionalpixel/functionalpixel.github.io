@@ -60,15 +60,22 @@ div.navbar ul.nav a {
     }
 
     #logo   { width: 420px; }
+
 }
 
-/*
 @media (min-width: 992px) {
+    #design, #development, #illustration {
+	position: relative;
+	min-height: 462px;
+    }
 }
 
 @media (min-width: 1200px) {
+    #design, #development, #illustration {
+	position: relative;
+	min-height: 422px;
+    }
 }
-*/
 
 /* content */
 h3.content-title {
