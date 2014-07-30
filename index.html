@@ -2,51 +2,219 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Functional Pixel</title>
-    <link rel="shortcut icon" href="favicon-152x152.png"/>
-    <link rel="apple-touch-icon" href="favicon-152x152.png"/>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <!-- HTML5 Shim for IE -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <link href='http://fonts.googleapis.com/css?family=Codystar|Marvel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/site.css" rel="stylesheet"/>
+    <link href="favicon.png" rel="icon" type="image/png"/>
     <style>
-      body {
-	background-color: #08070b;
-	color: #f3e8ff;
-	font-family: 'Marvel', sans-serif;
-        font-size: 12pt;
-	padding: 0.25em 1.5em 0.25em 1.5em;
-      }
+     @-webkit-keyframes 'pulsator' {
+       0% {
+	 background-color: #0f050a;
+	 border-right-color: #0f050a;
+	 color: #eee2d2;
+       }
 
-      span.pixel {
-	color: greenyellow;
-	font-family: 'Codystar', cursive;
-      }
+       10% {
+	 /* background-color: #c5182c; */
+	 background-color: #8d1120;
+	 color: #0f050a;
+       }
 
-      h1 {
-	font-size: 3em;
-	letter-spacing: -0.025em;
-	margin-bottom: 0.5em;
-      }
+       30% {
+	 /* background-color: #e0ba15; */
+	 background-color: #8c740d;
+       }
 
-      #content {
-	font-size: 1.1em;
-      }
+       50% {
+	 /* background-color: #4ccb22; */
+	 background-color: #358c17;
+       }
+
+       70% {
+	 /* background-color: #1f89c5; */
+	 background-color: #16628c;
+       }
+
+       90% {
+	 /* background-color: #6623ab; */
+	 background-color: #541d8c;
+       }
+
+       98% {
+	 background-color: #0f050a;
+	 border-right-color: #0f050a;
+	 color: #0f050a;
+       }
+
+       100% {
+	 background-color: #0f050a;
+	 color: #eee2d2;
+       }
+     }
+
+     .pulsate {
+       -webkit-animation-name: pulsator;
+       -webkit-animation-delay: 0.5s;
+       -webkit-animation-duration: 1.5s;
+       -webkit-animation-timing-function: ease-in-out;
+       -webkit-animation-direction: alternate;
+       /* -webkit-animation-iteration-count: 6; */
+     }
     </style>
   </head>
-  <body>
-    <div id="header">
-      <h1>functional <span class="pixel">PIXEL</span></h1>
+  <body role="document">
+    <!-- nav -->
+    <div id="nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	    <span class="sr-only">Toggle navigation</span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	  </button>
+	  <a href="#home" class="navbar-brand" title="Functional Pixel"><img src="img/logo-nav.svg" height="25" alt="Functional Pixel logo in navigation bar"/></a>
+	</div>
+	<div class="navbar-collapse collapse">
+	  <ul class="nav navbar-nav navbar-right">
+	    <li><a href="#home">Home</a></li>
+	    <li><a href="#services">Services</a></li>
+	    <li><a href="#about">About</a></li>
+	    <li><a href="#contact">Contact</a></li>
+	  </ul>
+	</div>
+      </div>
     </div>
-    <div id="content">
-      <p>This is just a placeholder. The actual site is coming soon!</p>
+    <!-- /nav -->
+
+    <!-- jumbotron -->
+    <div id="header" name="home" class="jumbotron header-container">
+      <div class="container">
+	<img id="logo" src="img/logo-main.svg" alt="Functional Pixel logo"/>
+      </div>
+    </div>
+    <!-- /jumbotron -->
+
+    <!-- services -->
+    <div class="container" style="margin-bottom: 1em">
+      <div class="row">
+	<div class="col-md-12">
+	  <h3 name="services" class="content-title content-type-service">Services</h3>
+	</div>
+      </div>
+      <div class="row">
+	<div class="col-md-4">
+	  <div id="development" class="service">
+	    <!-- <img src="img/service-development.png" width="140" alt="Development service icon"/> -->
+	    <h3>Development</h3>
+	    <p>This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me.</p>
+	  </div>
+	</div>
+	<div class="col-md-4">
+	  <div id="design" class="service">
+	    <!-- <img src="img/service-design.png" width="140" alt="Design service icon"/> -->
+	    <h3>Design</h3>
+	    <p>This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me.</p>
+	  </div>
+	</div>
+	<div class="col-md-4">
+	  <div id="illustration" class="service">
+	    <!-- <img src="img/service-illustration.png" width="140" alt="Illustration service icon"/> -->
+	    <h3>Illustration</h3>
+	    <p>This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me.</p>
+	  </div>
+	</div>
+      </div>
+    </div>
+    <!-- /services -->
+
+    <!-- about -->
+    <div class="container">
+      <div class="row">
+	<div class="col-md-6">
+	  <!-- about -->
+	  <h3 name="about" class="content-title content-type-about">About Me</h3>
+	  <div id="about" class="info">
+	    <p>This is a lengthy description about how awesome I am. This should include helpful information, such as, my general location, how long I have been doing this, stuff I'm <strong>passionate</strong> about and why I'm passionate about such things.</p>
+	    <p>This is more filler text about my pure awesomeness and why you cannot help yourself but to give me money.</p>
+	  </div>
+	  <!-- /about -->
+	</div>
+	<div class="col-md-6">
+	  <!-- contact -->
+	  <h3 name="contact" class="content-title content-type-contact">Contact</h3>
+	  <div id="contact" class="info">
+	    <p>This is the contact section. I'll put stuff in here like my email, facebook, google plus, twitter and any other blah-blah social-media blah-blah that people seem to care about. I would put an actual contact form but since this is hosted on github for free, but only supports static content, I have no way to handle a form submission. Oh well, email works.</p>
+	    <ul class="social">
+	      <li><a href="#"><span class="symbol">&#xe224;</a></li>
+	      <li><a href="#"><span class="symbol">&#xe239;</a></li>
+	      <li><a href="#"><span class="symbol">&#xe227;</a></li>
+	      <li><a href="#"><span class="symbol">&#xe286;</a></li>
+	    </ul>
+	  </div>
+	  <!-- /contact -->
+	</div>
+      </div>
     </div>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
+    <!-- footer -->
+    <div id="footer">
+      <p>Copyright &copy; 2014 Functional Pixel LLC. All rights reserved.</p>
+    </div>
+    <!-- /footer -->
+
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+     $(document).ready(function() {
+       var navbar = $(".navbar-collapse");
+
+       var pulsator = function(anchor) {
+	 var elem = $("[name=" + anchor + "]");
+	 elem.one("webkitAnimationEnd", function() {
+	   $(this)
+             .css("webkitAnimationName", "")
+	     .removeClass("pulsate");
+	 });
+	 elem.css("webkitAnimationName", "pulsator");
+	 elem.addClass("pulsate");
+       };
+
+       var scrollToAnchor = function(anchor) {
+	 var PADDING = 8;
+	 var target = $("[name=" + anchor + "]");
+	 if (target.length) {
+	   var pos = target.offset().top - $("#nav").height() - PADDING;
+	   if (anchor === "home") pos = 0;
+	   $("html,body")
+             .animate({ scrollTop: pos }, {
+	       duration: 650,
+	       easing: "easeOutExpo"
+	     });
+	   pulsator(anchor);
+	 }
+       }
+
+       // setup animated scrolling
+       $("ul.nav a, a.navbar-brand").click(function(e) {
+	 e.preventDefault();
+
+	 var anchor = $(e.currentTarget).attr("href").slice(1);
+
+	 // test if mobile (collapsible menu) was used
+	 if (navbar.hasClass("collapse") && navbar.hasClass("in")) {
+	   navbar
+             .one("hidden.bs.collapse", function() { scrollToAnchor(anchor)})
+	     .collapse("hide");
+	 } else {
+	   scrollToAnchor(anchor);
+	 }
+       });
+     });
+    </script>
   </body>
 </html>
