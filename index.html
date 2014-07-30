@@ -111,6 +111,16 @@
 	    <!-- <img src="img/service-development.png" width="140" alt="Development service icon"/> -->
 	    <h3>Development</h3>
 	    <p>This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me. This is marketing text. It is very persuasive. You want to buy me.</p>
+
+	    <p style="padding-bottom: 0.5em">
+	      <strong>Programming Languages / Platforms</strong><br/>
+	      Java, Clojure, Ruby, Python, PHP, C/C++, Linux, Android
+	    </p>
+
+	    <p>
+	      <strong>Web Development / Frameworks</strong><br/>
+	      HTML5, CSS3, JavaScript, Backbone.js, Compojure, Rails, Slim, Spring&nbsp;Framework
+	    </p>
 	  </div>
 	</div>
 	<div class="col-md-4">
@@ -138,8 +148,7 @@
 	  <!-- about -->
 	  <h3 name="about" class="content-title content-type-about">About Me</h3>
 	  <div id="about" class="info">
-	    <p>This is a lengthy description about how awesome I am. This should include helpful information, such as, my general location, how long I have been doing this, stuff I'm <strong>passionate</strong> about and why I'm passionate about such things.</p>
-	    <p>This is more filler text about my pure awesomeness and why you cannot help yourself but to give me money.</p>
+	    <p>My name is Allen Johnson. I'm an independent software developer working out of the Orlando area with a focus on web and mobile applications. I've been doing software development for nearly two decades. Over that time I have learned many things and I'm always looking to learn more.</p>
 	  </div>
 	  <!-- /about -->
 	</div>
@@ -147,12 +156,13 @@
 	  <!-- contact -->
 	  <h3 name="contact" class="content-title content-type-contact">Contact</h3>
 	  <div id="contact" class="info">
-	    <p>This is the contact section. I'll put stuff in here like my email, facebook, google plus, twitter and any other blah-blah social-media blah-blah that people seem to care about. I would put an actual contact form but since this is hosted on github for free, but only supports static content, I have no way to handle a form submission. Oh well, email works.</p>
-	    <ul class="social">
-	      <li><a href="#"><span class="symbol">&#xe224;</a></li>
-	      <li><a href="#"><span class="symbol">&#xe239;</a></li>
-	      <li><a href="#"><span class="symbol">&#xe227;</a></li>
-	      <li><a href="#"><span class="symbol">&#xe286;</a></li>
+	    <p>If you have a development, design, or illustration need and would like to discuss it with me please feel free to drop me a line. Any of the social media links below will work but for a prompt response I would recommend contacting me via email. Which ever route you take, I will be sure to get back to you as soon as possible.</p>
+
+	    <ul class="social" style="text-align: center">
+	      <li><a href="#" class="contact-email"><span class="symbol">&#xe224;</a></li>
+	      <li><a href="https://plus.google.com/u/0/b/105740559751368842387/105740559751368842387/about" class="contact-gplus"><span class="symbol">&#xe239;</a></li>
+	      <li><a href="https://www.facebook.com/functional.pixel" class="contact-fb"><span class="symbol">&#xe227;</a></li>
+	      <li><a href="https://twitter.com/functionalpixel" class="contact-twitter"><span class="symbol">&#xe286;</a></li>
 	    </ul>
 	  </div>
 	  <!-- /contact -->
@@ -213,6 +223,18 @@
 	 } else {
 	   scrollToAnchor(anchor);
 	 }
+       });
+
+       // setup email
+       $("a.contact-email").click(function(event) {
+	 event.preventDefault();
+	 var parts = ["gmail.com", "pixel", "functional", "@"];
+	 var url = "mailto:";
+	 url += parts[2];
+	 url += parts[1];
+	 url += parts[3];
+	 url += parts[0];
+	 window.location = url;
        });
      });
     </script>

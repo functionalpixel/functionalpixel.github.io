@@ -100,9 +100,10 @@ h3.content-title {
 div.service, div.info {
     background: rgba(15, 5, 10, 0.5);
     padding: 1.5em 1.25em 1.5em 1.25em;
-    text-align: center;
     margin-bottom: 2em;
 }
+
+div.service { text-align: center; }
 
 div.service h3 {
     font-weight: normal;
@@ -112,8 +113,16 @@ div.service h3 {
     text-transform: uppercase;
 }
 
-div.service p, div.info p {
+div.service p {
     padding: 0 1.25em 2em 1.25em;
+}
+
+div.info p {
+    padding: 0 1.25em 1em 1.25em;
+}
+
+div.info p.note {
+    padding: 0 1.25em 0.5em 2em;
 }
 
 #design {
